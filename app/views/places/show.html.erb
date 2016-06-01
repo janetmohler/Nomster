@@ -4,14 +4,15 @@
   <br/><br/>
   <p><%= @place.description %></p>
   <!-- Listing of all the photos -->
-  <h1>This is where the photos will be displayed</h1>
   <% @place.photos.each do |photo| %>
-    <div class="col-xs-12 col-sm-6">
-      <blockquote>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+        <%= image_tag photo.picture, class: 'img-thumbnail' %>
         <%= photo.caption %>
-      </blockquote>
     </div>
   <% end %>
+
+  <div class="clear"></div>
+
   <!-- buttons will appear to the user that created that place -->
   <div class="pull-right">
     <% if current_user && current_user == @place.user %>
